@@ -1,0 +1,200 @@
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+}
+
+.page-title {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.dashboard-kpis {
+  margin-bottom: var(--space-2xl);
+}
+
+.dashboard-kpis .kpi-card {
+  animation: slide-up 0.5s ease-out backwards;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-lg);
+}
+
+.dashboard-section {
+  padding: var(--space-xl);
+}
+
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.match-list .candidate-card {
+  animation: slide-in-right 0.4s ease-out backwards;
+}
+
+.dashboard-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Quick Actions */
+.quick-actions-card {
+  padding: var(--space-lg);
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.quick-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: var(--font-xs);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.quick-action-btn:hover {
+  border-color: var(--action-color, var(--color-primary));
+  color: var(--action-color, var(--color-primary));
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateY(-2px);
+}
+
+.quick-action-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all var(--transition-base);
+}
+
+.quick-action-btn:hover .quick-action-icon {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Active Jobs */
+.active-jobs-card {
+  padding: var(--space-lg);
+}
+
+.active-jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.active-job-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.active-job-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.job-title-text {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.job-meta {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.job-count-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-dim);
+  color: var(--color-primary);
+  font-size: var(--font-xs);
+  font-weight: 700;
+}
+
+/* Hidden Gems Highlight */
+.hidden-gems-highlight {
+  padding: var(--space-lg);
+  border-color: rgba(244, 114, 182, 0.15);
+}
+
+.gems-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.gems-icon {
+  color: var(--color-pink);
+}
+
+.gems-header h3 {
+  font-size: var(--font-base);
+  font-weight: 700;
+}
+
+.gems-text {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.gems-text strong {
+  color: var(--color-pink);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

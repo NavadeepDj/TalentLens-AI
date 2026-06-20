@@ -1,0 +1,138 @@
+.discover-search {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  border-color: rgba(124, 58, 237, 0.15);
+}
+
+.discover-search-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.discover-search-header h2 {
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+
+.discover-search-desc {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.discover-input-row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-end;
+}
+
+.discover-input-row .textarea-field {
+  flex: 1;
+}
+
+.discover-loading {
+  padding: var(--space-3xl) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.discover-results-header {
+  margin-bottom: var(--space-xl);
+}
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--space-lg);
+}
+
+.discover-card {
+  padding: var(--space-xl);
+  cursor: pointer;
+  animation: slide-up 0.5s ease-out backwards;
+}
+
+.discover-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.discover-card-header > div:nth-child(2) {
+  flex: 1;
+}
+
+.discover-card-name {
+  font-weight: 700;
+  font-size: var(--font-base);
+}
+
+.discover-card-title {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.discover-card-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.discover-reason {
+  padding: var(--space-md);
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.05), rgba(124, 58, 237, 0.05));
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+.discover-reason-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-pink);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.discover-reason p {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.discover-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.discover-trajectory-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.trajectory-years {
+  color: var(--text-muted);
+}
+
+.discover-view-btn {
+  width: 100%;
+  justify-content: center;
+}

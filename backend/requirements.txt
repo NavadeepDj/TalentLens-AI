@@ -1,0 +1,19 @@
+# TalentLens AI — Backend Dependencies
+fastapi==0.115.12
+uvicorn[standard]==0.34.3
+python-multipart==0.0.20
+pydantic==2.11.3
+
+# AI & ML
+google-genai==1.16.1
+sentence-transformers==4.1.0
+qdrant-client==1.14.2
+
+# PDF Parsing
+PyMuPDF==1.25.5
+
+# HTTP (GitHub API)
+httpx==0.28.1
+
+# CORS
+python-dotenv==1.1.0

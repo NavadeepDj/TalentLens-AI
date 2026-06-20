@@ -1,0 +1,105 @@
+.loading-orb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.loading-orb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb-core {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  box-shadow: 0 0 30px var(--color-primary-glow), 0 0 60px rgba(0, 212, 255, 0.15);
+  animation: orb-pulse 2s ease-in-out infinite;
+}
+
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.orb-ring-1 {
+  width: 60%;
+  height: 60%;
+  border-color: rgba(0, 212, 255, 0.3);
+  animation: rotate 3s linear infinite;
+}
+
+.orb-ring-2 {
+  width: 80%;
+  height: 80%;
+  border-color: rgba(124, 58, 237, 0.2);
+  animation: rotate 5s linear infinite reverse;
+}
+
+.orb-ring-3 {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(244, 114, 182, 0.15);
+  border-style: dashed;
+  animation: rotate 8s linear infinite;
+}
+
+.orb-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.orb-particle-1 {
+  animation: orbit 2.5s linear infinite;
+  box-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+.orb-particle-2 {
+  animation: orbit 3.5s linear infinite 0.5s;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+  width: 4px;
+  height: 4px;
+}
+
+.orb-particle-3 {
+  animation: orbit 4s linear infinite 1s;
+  background: var(--color-pink);
+  box-shadow: 0 0 10px rgba(244, 114, 182, 0.4);
+  width: 5px;
+  height: 5px;
+}
+
+.orb-particle-4 {
+  animation: orbit 3s linear infinite 1.5s;
+  background: var(--color-success);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes orb-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px var(--color-primary-glow), 0 0 60px rgba(0, 212, 255, 0.15);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 40px var(--color-primary-glow), 0 0 80px rgba(0, 212, 255, 0.25);
+  }
+}
+
+.loading-orb-text {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  animation: fade-in 0.5s ease-out;
+  letter-spacing: 0.5px;
+}
