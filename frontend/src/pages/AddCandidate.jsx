@@ -5,12 +5,11 @@ import {
   FileText, 
   CheckCircle2, 
   X, 
-  Github, 
-  Linkedin, 
   Link as LinkIcon,
   Sparkles,
   ArrowRight
 } from 'lucide-react';
+import { Github, Linkedin } from '../components/ui/BrandIcons';
 import { useDropzone } from 'react-dropzone';
 import LoadingOrb from '../components/ui/LoadingOrb';
 import './AddCandidate.css';

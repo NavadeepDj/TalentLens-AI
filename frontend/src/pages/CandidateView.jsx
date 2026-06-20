@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Mail, MapPin, GraduationCap, Briefcase,
-  TrendingUp, Code, Gem, ExternalLink, Github, Linkedin, FileText
+  TrendingUp, Code, Gem, ExternalLink, FileText
 } from 'lucide-react';
+import { Github, Linkedin } from '../components/ui/BrandIcons';
 import MatchScore from '../components/ui/MatchScore';
 import VerificationBadge from '../components/ui/VerificationBadge';
 import './CandidateView.css';
