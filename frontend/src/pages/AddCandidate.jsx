@@ -22,6 +22,8 @@ export default function AddCandidate() {
   const [processing, setProcessing] = useState(false);
   const [result, setResult] = useState(null);
 
+  const [error, setError] = useState(null);
+
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       setResumeFile(acceptedFiles[0]);
@@ -34,26 +36,44 @@ export default function AddCandidate() {
     maxFiles: 1,
   });
 
-  const handleProcess = () => {
+  const handleProcess = async () => {
     if (!githubUrl && !linkedinUrl && !resumeFile) return;
     
     setProcessing(true);
+    setError(null);
     
-    // Simulate API call to backend multi-source fusion
-    setTimeout(() => {
-      setProcessing(false);
-      setResult({
-        name: "Mock Candidate",
-        verification_score: 92,
-        sources_found: [
-          githubUrl ? 'github' : null,
-          linkedinUrl ? 'linkedin' : null,
-          resumeFile ? 'resume' : null
-        ].filter(Boolean),
-        skills_extracted: 18,
-        hidden_signals: 3
+    try {
+      const formData = new FormData();
+      if (githubUrl) formData.append('github_url', githubUrl);
+      if (linkedinUrl) formData.append('linkedin_url', linkedinUrl);
+      if (resumeFile) formData.append('resume', resumeFile);
+
+      const response = await fetch('http://localhost:8000/api/candidates/add', {
+        method: 'POST',
+        body: formData,
       });
-    }, 4500);
+
+      if (!response.ok) {
+        throw new Error(`Failed to build profile: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      const cand = data.candidate;
+
+      setResult({
+        id: cand.id,
+        name: cand.name,
+        verification_score: cand.cross_source ? Math.round(cand.cross_source.overall_score) : 0,
+        sources_found: cand.sources_provided || [],
+        skills_extracted: cand.skill_names ? cand.skill_names.length : 0,
+        hidden_signals: cand.hidden_gem ? 1 : 0
+      });
+    } catch (err) {
+      console.error("Error building candidate profile:", err);
+      setError(err.message || "Failed to connect to the backend server. Make sure it is running.");
+    } finally {
+      setProcessing(false);
+    }
   };
 
   const removeFile = (e) => {
@@ -73,7 +93,7 @@ export default function AddCandidate() {
 
         <div className="result-card glass">
           <div className="result-header">
-            <div className="result-score-circle">
+            <div className="result-score-circle" style={{ background: `conic-gradient(var(--color-success) ${result.verification_score}%, rgba(255, 255, 255, 0.1) 0)` }}>
               <span className="score-val">{result.verification_score}%</span>
               <span className="score-lbl">Verified</span>
             </div>
@@ -95,7 +115,7 @@ export default function AddCandidate() {
           </div>
 
           <div className="result-actions">
-            <button className="btn btn-primary" onClick={() => navigate('/candidates')}>
+            <button className="btn btn-primary" onClick={() => navigate(`/candidates/${result.id}`)}>
               View Full Profile <ArrowRight size={18} />
             </button>
             <button className="btn btn-secondary" onClick={() => setResult(null)}>
@@ -186,6 +206,23 @@ export default function AddCandidate() {
           )}
         </div>
       </div>
+
+      {error && (
+        <div style={{ 
+          background: 'rgba(239, 68, 68, 0.1)', 
+          border: '1px solid rgba(239, 68, 68, 0.3)', 
+          color: '#EF4444', 
+          padding: '12px 16px', 
+          borderRadius: '8px', 
+          marginBottom: '16px',
+          fontSize: '14px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}>
+          <span>⚠️</span> {error}
+        </div>
+      )}
 
       <div className="action-row">
         <button 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Mail, MapPin, GraduationCap, Briefcase,
-  TrendingUp, Code, Gem, ExternalLink, FileText
+  TrendingUp, Code, Gem, ExternalLink, FileText, Sparkles, CheckCircle2
 } from 'lucide-react';
 import { Github, Linkedin } from '../components/ui/BrandIcons';
 import MatchScore from '../components/ui/MatchScore';

@@ -38,20 +38,32 @@ class GitHubAnalyzer:
     async def _fetch(self, client: httpx.AsyncClient, url: str) -> Optional[Any]:
         try:
             response = await client.get(url, headers=self.headers, timeout=10.0)
+            if response.status_code == 401 and "Authorization" in self.headers:
+                print("WARNING: GITHUB_TOKEN is invalid (401 Bad Credentials). Falling back to unauthenticated requests.")
+                del self.headers["Authorization"]
+                response = await client.get(url, headers=self.headers, timeout=10.0)
+                
             if response.status_code == 404:
                 return None
             response.raise_for_status()
             return response.json()
-        except Exception:
+        except Exception as e:
+            print(f"Fetch failed for {url}: {e}")
             return None
 
     async def _fetch_raw(self, client: httpx.AsyncClient, url: str) -> Optional[str]:
         try:
             response = await client.get(url, headers=self.headers, timeout=10.0)
+            if response.status_code == 401 and "Authorization" in self.headers:
+                print("WARNING: GITHUB_TOKEN is invalid (401 Bad Credentials). Falling back to unauthenticated requests.")
+                del self.headers["Authorization"]
+                response = await client.get(url, headers=self.headers, timeout=10.0)
+                
             if response.status_code == 200:
                 return response.text
             return None
-        except Exception:
+        except Exception as e:
+            print(f"Fetch raw failed for {url}: {e}")
             return None
 
     def _is_signal_repo(self, repo: Dict[str, Any]) -> bool:
