@@ -38,6 +38,11 @@ class GitHubRepo(BaseModel):
     forks: int = 0
     topics: list[str] = Field(default_factory=list)
     extracted_skills: list[str] = Field(default_factory=list)
+    dependencies_extracted: list[str] = Field(default_factory=list)
+    has_cicd: bool = False
+    has_docker: bool = False
+    has_tests: bool = False
+    complexity_score: int = 0
     is_fork: bool = False
     updated_at: Optional[str] = None
 
@@ -59,6 +64,10 @@ class GitHubProfile(BaseModel):
     stars_received: int = 0
     skills_from_deps: list[str] = Field(default_factory=list)        # From package.json, requirements.txt
     skills_from_readmes: list[str] = Field(default_factory=list)     # AI-extracted from READMEs
+    tech_tree: list[str] = Field(default_factory=list)               # Flattened engineering tech tree
+    seniority_score: int = 0                                          # Based on CI/CD + Docker + Tests
+    humility_gap_detected: bool = False                               # Quiet Builder ⭐
+    humility_gap_reason: Optional[str] = None
 
 
 # ──────────────────────────────────────────────

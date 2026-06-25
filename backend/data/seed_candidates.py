@@ -35,7 +35,9 @@ def create_seed_candidates() -> dict[str, FusedCandidate]:
             followers=120,
             languages={"Python": 65.0, "JavaScript": 20.0, "Go": 15.0},
             frameworks=["FastAPI", "Django"],
-            stars_received=45
+            stars_received=45,
+            tech_tree=["python", "fastapi", "django", "postgresql", "docker", "aws"],
+            seniority_score=45
         ),
         cross_source=CrossSourceVerification(
             overall_score=95.0,
@@ -60,7 +62,7 @@ def create_seed_candidates() -> dict[str, FusedCandidate]:
         total_experience_years=3.0,
         growth_score=92.0,
         hidden_gem=True,
-        hidden_gem_reason="GitHub reveals extensive FastAPI open-source contributions despite resume only mentioning Flask.",
+        hidden_gem_reason="Quiet Builder ⭐: GitHub AST scan uncovered 3 enterprise repositories with Docker containerization, Pytest suites, and Redis caching. Resume omits these architectural competencies.",
         skill_names=["Python", "Flask", "FastAPI", "Docker"],
         all_skills=[
             SkillEvidence(skill="Flask", from_resume=True, from_github=True),
@@ -73,7 +75,11 @@ def create_seed_candidates() -> dict[str, FusedCandidate]:
             languages={"Python": 80.0, "TypeScript": 20.0},
             frameworks=["FastAPI", "Flask", "React"],
             stars_received=320,
-            open_source_contributions=15
+            open_source_contributions=15,
+            tech_tree=["fastapi", "docker", "redis", "celery", "pytest", "typescript", "react"],
+            seniority_score=50,
+            humility_gap_detected=True,
+            humility_gap_reason="GitHub reveals deep production architecture standards (Docker, Pytest, Celery) missing from resume."
         ),
         cross_source=CrossSourceVerification(
             overall_score=85.0,

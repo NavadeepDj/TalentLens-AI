@@ -78,9 +78,9 @@ class ProfileFusionService:
                 skill_map[norm].from_linkedin = True
                 skill_map[norm].linkedin_endorsed = True
 
-        # Add GitHub Skills (Languages + Frameworks)
+        # Add GitHub Skills (Languages + Frameworks + Tech Tree)
         if github:
-            gh_skills = list(github.languages.keys()) + github.frameworks + github.skills_from_deps
+            gh_skills = list(set(list(github.languages.keys()) + github.frameworks + github.skills_from_deps + github.tech_tree))
             for s in gh_skills:
                 norm = self._normalize_skill(s)
                 if norm not in skill_map:
@@ -94,6 +94,11 @@ class ProfileFusionService:
         # Finalize skills
         fused.all_skills = list(skill_map.values())
         fused.skill_names = [s.skill for s in fused.all_skills]
+
+        # Seniority & Humility Gap check
+        if github and github.seniority_score >= 30:
+            fused.hidden_gem = True
+            fused.hidden_gem_reason = "Enterprise Architecture Depth: GitHub repositories demonstrate advanced engineering standards (CI/CD pipelines, Docker containerization, and comprehensive unit test suites)."
 
         # 3. Calculate Cross-Source Verification
         fused.cross_source = self._calculate_verification(skill_map, sources)
