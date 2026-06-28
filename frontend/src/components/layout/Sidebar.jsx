@@ -1,13 +1,10 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  Search, 
-  Upload, 
-  BriefcaseBusiness, 
-  Users, 
+  Trophy, 
+  ShieldAlert, 
+  Brain,
   Sparkles,
-  Gem,
-  Settings,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
@@ -15,17 +12,14 @@ import { useState } from 'react';
 import './Sidebar.css';
 
 const navItems = [
-  { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { path: '/jobs', icon: BriefcaseBusiness, label: 'Jobs' },
-  { path: '/candidates', icon: Users, label: 'Candidates' },
-  { path: '/match', icon: Sparkles, label: 'Match', badge: 'AI' },
-  { path: '/discover', icon: Gem, label: 'Hidden Talent' },
-  { path: '/add', icon: Upload, label: 'Add Candidate' },
+  { path: '/dashboard', icon: LayoutDashboard, label: 'Pipeline Flow' },
+  { path: '/rankings', icon: Trophy, label: 'Top 100 Rankings', badge: 'AI' },
+  { path: '/honeypots', icon: ShieldAlert, label: 'Honeypot Trap', badge: '15' },
+  { path: '/how-it-works', icon: Brain, label: 'Semantic Engine' },
 ];
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
-  const location = useLocation();
 
   return (
     <aside className={`sidebar glass ${collapsed ? 'collapsed' : ''}`}>
@@ -37,7 +31,7 @@ export default function Sidebar() {
           {!collapsed && (
             <div className="logo-text">
               <span className="logo-name">TalentLens</span>
-              <span className="logo-badge">AI</span>
+              <span className="logo-badge">v2</span>
             </div>
           )}
         </NavLink>
@@ -72,10 +66,10 @@ export default function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <NavLink to="/settings" className="sidebar-link">
-          <Settings size={20} className="sidebar-icon" />
-          {!collapsed && <span className="sidebar-label">Settings</span>}
-        </NavLink>
+        <div className="sidebar-link" style={{ cursor: 'default', opacity: 0.7 }}>
+          <Sparkles size={20} className="sidebar-icon" style={{ color: 'var(--color-primary)' }} />
+          {!collapsed && <span className="sidebar-label" style={{ fontSize: '0.75rem' }}>100K Analyzed in 12s</span>}
+        </div>
       </div>
     </aside>
   );

@@ -1,0 +1,45 @@
+# Redrob Hackathon — Submission Metadata
+
+team_name: "TalentLens AI"
+
+primary_contact:
+  name: "Navadeep Dj"
+  email: "navadeep@example.com"
+  phone: "+91-9876543210"
+
+team_members:
+  - name: "Navadeep Dj"
+    email: "navadeep@example.com"
+    role: "Full Stack AI Engineer"
+
+github_repo: "https://github.com/NavadeepDj/TalentLens-AI"
+sandbox_link: "https://github.com/NavadeepDj/TalentLens-AI"
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./team_talentlens.csv"
+
+compute:
+  platform: "Local Windows Workstation"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "Gemini"
+
+ai_usage_summary: |
+  Used Gemini 3.1 Pro for data analysis, honeypot pattern discovery, constraint mapping, and code review.
+  No candidate data was fed to external APIs during ranking.
+
+methodology_summary: |
+  Multi-signal 7-dimension scoring engine combining semantic concept mapping (25% skills, 25% career depth), experience & title fit (20%), behavioral engagement (15%), platform activity (8%), and location/availability fit (7%). Incorporates semantic alias mapping (expanding ANN search, similarity search, contrastive learning to target JD concepts) and explicit honeypot/unfit filters (impossible tenure/metrics, zero-duration expert stuffers, and academic-only research environments). Generates unique, fact-grounded reasoning strings. Runs end-to-end in ~12 seconds on CPU.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

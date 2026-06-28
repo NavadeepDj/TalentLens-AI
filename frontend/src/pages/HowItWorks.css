@@ -1,0 +1,22 @@
+/* How It Works Page Styles */
+.how-it-works {
+  padding: var(--space-xl) var(--space-2xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.demo-box {
+  transition: all 0.3s ease;
+}
+
+.concept-card, .cluster-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.formula-box {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .expansion-visual { grid-template-columns: 1fr; gap: var(--space-md); }
+}

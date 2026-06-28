@@ -1,0 +1,67 @@
+/* Honeypots Page Styles */
+.honeypots-page {
+  padding: var(--space-xl) var(--space-2xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rules-grid {
+  gap: var(--space-md);
+}
+
+.rule-card {
+  transition: transform 0.2s ease;
+}
+
+.rule-card:hover {
+  transform: translateY(-4px);
+}
+
+.test-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.comparison-box {
+  align-items: stretch;
+}
+
+.badge-error {
+  background: var(--color-error-dim);
+  color: var(--color-error);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.badge-success {
+  background: var(--color-success-dim);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.btn-error {
+  background: var(--color-error-dim);
+  color: var(--color-error);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-error:hover {
+  background: var(--color-error);
+  color: #fff;
+}
+
+.btn-success {
+  background: var(--color-success-dim);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+  background: var(--color-success);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
